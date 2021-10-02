@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class='container'>
+        <form method="POST">
+        {% csrf_token %}
+  <div class="mb-3">
+  <label for="{{form.name.id_for_label}}" class="form-label">{{form.name.label}}</label>
+  <br>
+  {{form.name}}
+</div>
+<div class="mb-3">
+  <label for="{{form.message.id_for_label}}" class="form-label">{{form.message.label}}</label>
+  <br>
+  {{form.message}}
+</div>
+        <button type='submit' class="btn btn-success">Submit</button>
+
+        </div>
+    </form>
+    </div>
+    <div class='container'>
+        <table class="table bordertable">
+        <tr>
+           <th>SI NO</th>
+           <th>Name</th>
+           <th>Message</th>
+        </tr>
+        {% for item in table %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{item.name}} </td>
+                <td>{{item.message}} </td>  
+            </tr>
+        {% endfor %}
+        </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
